@@ -1,22 +1,23 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
     providedIn: 'root'
 })
 
-export class CartService{
-    constructor(){};
-    items: [];
-    
-    addToCart(product){
+export class CartService {
+    items = [];
+
+    constructor() { }
+
+    addToCart(product) {
         this.items.push(product);
     }
 
-    getItems(){
+    getItems() {
         return this.items;
     }
 
-    clearCart(){
+    clearCart() {
         this.items = [];
         return this.items;
     }
