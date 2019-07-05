@@ -13,7 +13,7 @@
 <form [formGroup]="checkedForm" (ngSubmit)="onSubmit(checkedForm.value)">
     <div>
         <label for="name">Name</label>
-        <input id="name" type="text" formControlName="name">
+        <input id="name" type="text" formControlName="name" required>
     </div>
 
     <div formGroupName="address">
@@ -33,7 +33,7 @@
 
     </div>
 
-    <button class="button" type="submit">Purchase</button>
+    <button class="button" type="submit" *ngIf="checkedForm.status === 'VALID'">Purchase</button>
     <button class="button" type="button" (click)="resetForm()">Reset</button>
 
 </form>
@@ -45,5 +45,8 @@
     </p>
     <p>
         Address: {{checkedForm.controls.address.value | json}}
+    </p>
+    <p>
+        Form status: {{checkedForm.status}}
     </p>
 </div>
