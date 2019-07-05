@@ -49,4 +49,27 @@
     <p>
         Form status: {{checkedForm.status}}
     </p>
+    <p>
+        Form errors: {{checkedForm.controls.name.errors | json}}
+    </p>
+</div>
+
+<div>
+    <h3>Errors</h3>
+
+    <div *ngIf="name.invalid && (name.dirty || name.touched)">
+
+        <div *ngIf="name.errors.required">
+            Name is required!
+        </div>
+
+        <div *ngIf="name.errors.minlength">
+            Minimum length has to be 4
+        </div>
+
+        <div *ngIf="name.errors.forbidden">
+            Name Can't be {{name.value}}
+        </div>
+
+    </div>
 </div>
