@@ -22,5 +22,16 @@
     </div>
 
     <button class="button" type="submit">Purchase</button>
+    <button class="button" type="button" (click)="resetForm()">Reset</button>
 
 </form>
+
+<div>
+    <h3>Customer</h3>
+    <p>
+        Name: {{checkedForm.controls.name.value}}
+    </p>
+    <p>
+        Address: {{checkedForm.controls.address.value}}
+    </p>
+</div>
