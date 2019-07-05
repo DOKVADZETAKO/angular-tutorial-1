@@ -1,0 +1,9 @@
+<h2 routerLink="/wishlist">wishlist</h2>
+
+<div class="cart-item" *ngFor="let item of wishlist">
+    <span>{{item.name}}</span>
+    <span>{{item.price | currency}}</span>
+    <button (click)="clearWishlist()">Delete</button>
+</div>
+
+<button (click)="clearAll()">Delete All</button>

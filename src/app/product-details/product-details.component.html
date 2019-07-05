@@ -5,4 +5,5 @@
     <h4>{{product.price | currency}}</h4>
     <p *ngIf="product.description">{{product.description}}</p>
     <button (click)= "addToCart(product)">Buy</button>
+    <button (click)="addToWishList(product)">wishlist</button>
 </div>
