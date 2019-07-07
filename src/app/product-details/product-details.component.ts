@@ -13,6 +13,7 @@ import { WishListService } from './../wishlist.service'
 
 export class ProductDetailsComponent implements OnInit {
     product;
+    inWishList = false;
 
     constructor(
         private route: ActivatedRoute,
@@ -33,7 +34,7 @@ export class ProductDetailsComponent implements OnInit {
 
     addToWishList(product) {
         window.alert('Yor product has been added! to wishlist')
-        this.wishlistService.addToWishlist(product)
+        this.inWishList = this.wishlistService.addToWishList(product, this.inWishList);
     }
 
 }

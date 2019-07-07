@@ -9,17 +9,18 @@ import { WishListService } from '../wishlist.service'
 })
 export class WishlistComponent implements OnInit {
   wishlist;
-  constructor(private wishlistService: WishListService) {
-    this.wishlist = this.wishlistService.getWishlist();
+  constructor(private wishListServise: WishListService) {
+    this.wishlist = this.wishListServise.getWishlist();
   };
 
   ngOnInit() {
   }
 
-  clearWishlist() {
+    clearWishlist() {
     this.wishlist = [];
   }
-  clearAll() {
-    this.wishlist = [];
+
+  clearWish(productId) {
+    this.wishListServise.clearWish(productId);
   }
 }

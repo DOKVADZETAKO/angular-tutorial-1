@@ -10,17 +10,24 @@ export class WishListService {
 
     constructor(private http: HttpClient) { }
 
-    addToWishlist(product) {
-        this.wishlist.push(product);
+    addToWishList(wish, inWishList) {
+        if (!this.wishlist.includes(wish)) {
+            this.wishlist.push(wish);
+            inWishList = true;
+        }
+        return inWishList;
     }
 
     getWishlist() {
         return this.wishlist;
     }
 
-    clearCart() {
+    clearWishList() {
         this.wishlist = [];
         return this.wishlist;
+    }
+    clearWish(productId) {
+        this.wishlist.splice(productId, 1);
     }
 
 }
