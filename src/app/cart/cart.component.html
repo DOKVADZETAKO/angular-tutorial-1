@@ -7,8 +7,9 @@
 <div class="cart-item" *ngFor="let item of items">
     <span>{{item.name}}</span>
     <span>{{item.price | currency}}</span>
-    <button (click)="clearCart()">Delete</button>
+    <button (click)="clearItem(product)">Delete</button>
 </div>
+<button (click)="clearCart()">Delete All</button>
 
 <form [formGroup]="checkedForm" (ngSubmit)="onSubmit(checkedForm.value)">
     <div>

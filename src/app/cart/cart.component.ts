@@ -33,11 +33,12 @@ export class CartComponent implements OnInit {
 
     ngOnInit() { };
 
+    clearItem(product) {
+        this.cartService.clearItem(product);
+    }
+
     clearCart() {
         this.items = [];
-
-        //this.cartService.clearCart();
-        //
     }
 
     onSubmit(value) {
