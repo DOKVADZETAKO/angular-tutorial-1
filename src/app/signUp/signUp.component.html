@@ -1,9 +1,10 @@
-<h3>task-1</h3>
+<h2 routerLink="/signUp">Sign Up</h2>
 
 <form [formGroup]="checkedForm" (ngSubmit)="onSubmit(checkedForm.value)">
-    <div formGroupName="task1">
+    <div formGroupName="signUp">
         <label> E-mail:
             <input type="text" formControlName="email" required>
+            <div *ngIf="email.errors.get(email)"></div>
         </label>
         <label> Password:
             <input type="text" formControlName="password" required>
@@ -23,34 +24,12 @@
 
     </div>
 
-    <button class="checkbox" type="checkbox">I have read the <a href="#">Agreement</a></button>
+    <input type="checkbox" required>I have read the <a href="#">Agreement</a>
 
     <button class="button" type="button" (click)="onSubmit()" disabled="checkedForm.status == 'VALID'">Register</button>
 
 </form>
 
-<div>
-    <p>
-        Form status: {{checkedForm.status}}
-    </p>
-</div>
 
-<!-- <div>
-    <h3>Errors</h3>
+E-mail: {{checkedForm.controls.E-mail | json}}
 
-    <div *ngIf="name.invalid && (name.dirty || name.touched)">
-
-        <div *ngIf="name.errors.required">
-            Name is required!
-        </div>
-
-        <div *ngIf="name.errors.minlength">
-            Minimum length has to be 4
-        </div>
-
-        <div *ngIf="name.errors.forbidden">
-            Name Can't be {{name.value}}
-        </div>
-
-    </div>
-</div> -->
