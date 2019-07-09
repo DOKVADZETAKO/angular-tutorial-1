@@ -10,7 +10,7 @@ export class signUpComponent implements OnInit {
     checkedform;
     constructor(
         private formBuilder: FormBuilder
-        ){
+    ) {
         this.checkedform = formBuilder.group({
             email: ['', [Validators.required, Validators.email]],
             passwordGroup: formBuilder.group({
@@ -21,7 +21,7 @@ export class signUpComponent implements OnInit {
                 }),
             nickname: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9 ._-]+$/)]],
             phoneNumber: ['', [Validators.required, Validators.pattern(/\+380[0-9]{9}$/)]],
-            website: ['',Validators.required, Validators.pattern(/(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/)],
+            website: ['', Validators.required, Validators.pattern(/(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/)],
             agreement: ['', Validators.required]
         })
     }
