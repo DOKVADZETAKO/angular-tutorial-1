@@ -1,0 +1,11 @@
+<h1>Exchange</h1>
+
+    <select (change)="onChange($event.target.value)" id="currency1">
+        <option [value]="currency" *ngFor="let currency of currencies">{{currency}}</option>
+    </select>
+    <input type="text">
+
+    <select id="currency2">
+        <option ([value])="currency" *ngFor="let currency of currencies">{{currency}}</option>
+    </select>
+    <input type="text">

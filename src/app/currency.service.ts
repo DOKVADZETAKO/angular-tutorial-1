@@ -15,6 +15,10 @@ export class CurrencyService {
     this.Observer = new Observable(this.subscribe());
   }
 
+  getcurrencies(){
+    return this.currencies
+  };
+
   subscribe() {
     return (subscriber) => {
       let i = 0;
