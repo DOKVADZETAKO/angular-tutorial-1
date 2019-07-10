@@ -16,7 +16,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { signUpComponent } from './signUp/signUp.component';
 import { CurrencyComponent } from './currency/currency.component';
 import { ExchangeComponent } from './exchange/exchange.component';
-import { ShippingService } from './shipping.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +47,7 @@ import { ShippingService } from './shipping.service';
     ]),
     ReactiveFormsModule
   ],
-  providers: [ShippingService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
