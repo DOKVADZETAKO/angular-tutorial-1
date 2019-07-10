@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ShippingService } from '../shipping.service';
 
 @Component({
-  providers: [ShippingService],
   selector: 'app-shipping',
   templateUrl: './shipping.component.html',
   styleUrls: ['./shipping.component.scss']
@@ -15,6 +14,14 @@ export class ShippingComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  get selectedShipping() {
+    return this.shippingService.gettype();
+  }
+
+  selectShipping(value) {
+    this.shippingService.setShipping(value)
   }
 
 }
