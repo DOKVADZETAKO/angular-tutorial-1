@@ -8,16 +8,14 @@ import { ShippingService } from '../shipping.service';
 })
 export class ShippingComponent implements OnInit {
   shippingCosts;
+  selectedShipping
 
   constructor(private shippingService: ShippingService) {
     this.shippingCosts = shippingService.getShippingCosts();
+    this.selectedShipping = shippingService.gettype();
   }
 
   ngOnInit() {
-  }
-
-  get selectedShipping() {
-    return this.shippingService.gettype();
   }
 
   selectShipping(value) {
