@@ -11,3 +11,23 @@
     <option [value]="currency" *ngFor="let currency of currencies">{{currency}}</option>
 </select>
 <input type="number" (keyup)="keyUp2($event.target.value); change2(); exchange()" [value]="secondCurrencyValue">
+
+
+<!-- task-3 -->
+
+<h1>Sum</h1>
+
+<button (click)="addCurrency()">Add Currency</button>
+
+<form [formGroup]="arrayForm">
+    <div formArrayName="input">
+        <div *ngFor="let input of inputs; let i = index">
+            <select (change)="onChange3($event.target.value);">
+                <option value="Choose Currency">Choose</option>
+                <option [value]="currency" *ngFor="let currency of currencies">{{currency}}</option>
+            </select>
+            <input type="number" [formControlName]="i" (keyup)="keyUp3($event.target.value); sum() "
+                [value]="currency3Value">
+        </div>
+    </div>
+</form>
