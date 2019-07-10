@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { data } from './currencies';
 import { Observable, from } from 'rxjs'
 import { HttpClient } from '@angular/common/http';
-import { url } from 'inspector';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +35,4 @@ export class CurrencyService {
       })
     };
   }
-
 }
