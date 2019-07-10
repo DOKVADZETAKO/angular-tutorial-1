@@ -1,11 +1,11 @@
 <h1>Exchange</h1>
 
-<select (change)="onChange($event.target.value)" id="currency1">
+<select (change)="onChange($event.target.value); exchange() " id="currency1">
     <option [value]="currency" *ngFor="let currency of currencies">{{currency}}</option>
 </select>
 <input type="number" (keyup)="keyUp($event.target.value); exchange()">
 
-<select (change)="onChange2($event.target.value); exchange()">
+<select (change)="onChange2($event.target.value); exchange()" id="currency2">
     <option [value]="currency" *ngFor="let currency of currencies">{{currency}}</option>
 </select>
 <input type="number" [value]="secondCurrencyValue">
