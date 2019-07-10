@@ -18,7 +18,8 @@ export class ExchangeComponent implements OnInit {
   currency2;
   Observer;
   rates;
-
+  test1;
+  test2;
   constructor(private currencyService: CurrencyService,
     private http: HttpClient,
     private formBuilder: FormBuilder) {
@@ -27,36 +28,59 @@ export class ExchangeComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
 
   onChange(value) {
     this.currency1 = value;
-    console.log(value)
   }
 
   keyUp(value) {
     this.firstCurrencyValue = value;
   }
 
+  keyUp2(value) {
+    this.secondCurrencyValue = value;
+  }
+
   onChange2(value) {
     this.currency2 = value;
   }
 
+  change1() {
+    this.test1 = true;
+    this.test2 = false;
+  }
+
+  change2() {
+    this.test2 = true;
+    this.test1 = false;
+  }
+
   exchange() {
-    console.log(this.currency1 + ' ' + this.firstCurrencyValue + ' ' + this.currency2);
     if (this.currency1 && this.currency2) {
-      const url = ` https://api.exchangeratesapi.io/latest?base=${this.currency1}&symbols=${this.currency2}`;
-      this.http.get(url).subscribe(value => {
-        this.updateSecondCurrencyValue(value);
-      });
+      if (this.test1) {
+        const url = ` https://api.exchangeratesapi.io/latest?base=${this.currency1}&symbols=${this.currency2}`;
+        this.http.get(url).subscribe(value => {
+          this.updateSecondCurrencyValue(value);
+        });
+      } else if (this.test2) {
+        const url = ` https://api.exchangeratesapi.io/latest?base=${this.currency2}&symbols=${this.currency1}`;
+        this.http.get(url).subscribe(value => {
+          this.updateFirstCurrencyValue(value);
+        });
+      }
+
     }
   }
 
   updateSecondCurrencyValue(value) {
     const result = +Object.values(value.rates)
-    this.secondCurrencyValue = this.firstCurrencyValue*result;
+    this.secondCurrencyValue = this.firstCurrencyValue * result;
   }
-
+  updateFirstCurrencyValue(value) {
+    const result2 = +Object.values(value.rates)
+    this.firstCurrencyValue = this.secondCurrencyValue * result2;
+  }
 }
 
