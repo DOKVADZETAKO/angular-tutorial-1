@@ -27,6 +27,8 @@ import { AdminGuard } from './admin.guard';
 import { LoginComponent } from './login/login.component';
 import { formsComponent } from './forms/forms.component';
 import { UsersComponent } from './users/users.component';
+import { AuthGuard } from './auth.guard';
+import { EditGuard } from './edit.guard';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { UsersComponent } from './users/users.component';
     GuardComponent,
     LoginComponent,
     formsComponent,
-    UsersComponent
+    UsersComponent,
+    
   ],
   imports: [
     HttpClientModule,
@@ -73,7 +76,8 @@ import { UsersComponent } from './users/users.component';
       { path: 'admin', data: { name: 'Admin' }, component: AdminComponent, canActivate: [AdminGuard] },
       { path: 'login', data: { name: 'Login' }, component: LoginComponent },
       { path: 'signUp2', data: { name: 'signUp2' }, component: formsComponent },
-      { path: 'users', data: { name: 'users' }, component: UsersComponent },
+      { path: 'users', data: { name: 'users' }, component: UsersComponent, canActivate: [AuthGuard] },
+     // { path: 'users/edit/:userId', data: { name: 'User' }, component: UserEditComponent , canActivate: [AuthGuard, EditGuard]},
       { path: '**', redirectTo: 'error' },
     ]),
     ReactiveFormsModule,

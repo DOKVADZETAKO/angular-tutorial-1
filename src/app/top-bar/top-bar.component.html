@@ -12,9 +12,9 @@
     whishlist
 </a>
 
-<a [routerLink]="['/signUp']" class="button funcy-button">
+<!-- <a [routerLink]="['/signUp']" class="button funcy-button">
     Sign Up
-</a>
+</a> -->
 
 <a [routerLink]="['/currency']" class="button funcy-button">
     Currencies
@@ -32,14 +32,18 @@
     Guard
 </a>
 
-<a [routerLink]="['/login']" class="button funcy-button">
+<a [routerLink]="['/signUp2']" class="button funcy-button">
+    SignUp-2
+</a>
+
+<a *ngIf="!isAuthorized" [routerLink]="['/login']" class="button">
     Log In
 </a>
 
-<a [routerLink]="['/users']" class="button funcy-button">
-   Users
+<a *ngIf="isAuthorized" [routerLink]="['/users']" class="button">
+    Users
 </a>
 
-<a [routerLink]="['/signUp2']" class="button funcy-button">
-    SignUp-2
- </a>
+<a *ngIf="isAuthorized" (click)="logOut()" class="button">
+    Log Out
+</a>

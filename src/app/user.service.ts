@@ -5,9 +5,13 @@ import { Injectable } from '@angular/core';
 })
 
 export class UsersService {
-    static GetUsers() {
-      
-    }
+    // static GetUsers() {
+
+    // }
+    
+    authorized = false;
+    authorizedUser = null;
+
 
     constructor() { }
 
@@ -22,4 +26,31 @@ export class UsersService {
         return this.usersList;
     }
 
+    public logIn(user) {
+        const userExists = this.usersList.find((item) => {
+            return item.email === user.email && item.password === user.password;
+        });
+
+        if (userExists) {
+            this.authorized = true;
+            this.authorizedUser = userExists;
+
+            return true;
+        }
+
+        return false;
+    }
+
+    logOut() {
+        this.authorized = false;
+        this.authorizedUser = null;
+    }
+
+    isAuthorized() {
+        return this.authorized;
+    }
+
+    getAuthUser() {
+        return this.authorizedUser;
+    }
 }

@@ -9,38 +9,31 @@ import { UsersService } from "./../user.service";
 
 export class formsComponent implements OnInit {
     register;
-
-
     constructor(
-
         private formBuilder: FormBuilder,
         private userService: UsersService
-    ) {
-
-
+    ){
         this.register = formBuilder.group({
             name: ['', [Validators.required]],
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.minLength(8), Validators.required, Validators.pattern(/[\w0-9]{8,}/)]],
             confPassword: ['', [Validators.minLength(8), Validators.required, Validators.pattern(/[\w0-9]{8,}/)]],
-
         },
             {
                 validators: this.MustMatch
             });
     }
 
+    passwordCheck(passwrd) {
+        let letterNumber = /^[0-9a-zA-Z]+$/;
+        return passwrd.value.match(letterNumber);
+    }
 
-    // passwordCheck(passwrd){
-    //     var letterNumber = /^[0-9a-zA-Z]+$/;
-    //     return passwrd.value.match(letterNumber);
-    // }
+    static isPassOk(passwrd) {
+        let letterNumber = /^[0-9a-zA-Z]+$/;
+        return passwrd.value.match(letterNumber) ? true : null;
 
-    // static isPassOk(passwrd){
-    //     var letterNumber = /^[0-9a-zA-Z]+$/;
-    //     return passwrd.value.match(letterNumber)? true : null;
-
-    // }
+    }
 
     MustMatch(password) {
         if (password.get('password').value !== password.get('confPassword').value) {
@@ -53,7 +46,5 @@ export class formsComponent implements OnInit {
         this.userService.addToUsers(value);
 
     }
-
     ngOnInit() { }
-
 }

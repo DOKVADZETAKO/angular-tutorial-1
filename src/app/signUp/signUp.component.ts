@@ -30,10 +30,6 @@ export class signUpComponent implements OnInit {
         return formGroup.get('password').value === formGroup.get('confirmPassword').value ? null : { incorrect: true };
     };
 
-
-    ngOnInit() {
-    };
-
     get passwordGroup() {
         return this.checkedform.get('passwordGroup') as FormGroup;
     };
@@ -65,6 +61,9 @@ export class signUpComponent implements OnInit {
 
     get email() {
         return this.checkedform.get('email') as FormControl;
+    };
+
+    ngOnInit() {
     };
 
 }

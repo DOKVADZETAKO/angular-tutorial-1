@@ -1,21 +1,19 @@
+<h1>Sign Up</h1>
 <div class="container">
-<form [formGroup]="register" (ngSubmit)="onSubmit(register)">
-
-
-        <label for="name"> Name:
-                <input id="name" type="text" formControlName="name" >
+    <form [formGroup]="register" (ngSubmit)="onSubmit(register)">
+        <label for="name"> NickName:
+            <input id="name" type="text" formControlName="name">
         </label>
         <label for="email"> Email:
-            <input id="email" type="email" formControlName="email" >
+            <input id="email" type="email" formControlName="email">
         </label>
         <label for="password"> Password:
-            <input type="text" formControlName="password">
+            <input type="password" formControlName="password">
         </label>
         <label for="confPassword"> Confirm Password:
-            <input type="text" formControlName="confPassword">
+            <input type="password" formControlName="confPassword">
         </label>
-    
-    <button class="btn btn-primary" [disabled]="register.status === 'INVALID'" type="submit" routerLink="/users" (click)="onSubmit(register.value)" >Register</button>
-
-</form>
+        <button [disabled]="register.status === 'INVALID'" type="submit" routerLink="/users"
+            (click)="onSubmit(register.value)">Register</button>
+    </form>
 </div>
