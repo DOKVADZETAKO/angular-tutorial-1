@@ -23,6 +23,7 @@ export class ExchangeComponent implements OnInit {
   rates;
   test1;
   test2;
+  sumOfCurrencies = 0;
   form: FormGroup;
   arrayForm: FormGroup;
   constructor(
@@ -99,12 +100,12 @@ export class ExchangeComponent implements OnInit {
 
   keyUp3(value) {
     this.thirdCurrencyValue = value;
-   // console.log(value);
+   console.log(value);
   }
 
   onChange3(value) {
     this.currency3 = value;
-   // console.log(value);
+    console.log(value);
   }
 
   get inputs() {
@@ -126,13 +127,14 @@ export class ExchangeComponent implements OnInit {
       const url = ` https://api.exchangeratesapi.io/latest?base=${'USD'}&symbols=${this.currency3}`;
       this.http.get(url).subscribe(value => {
         this.updateThirdCurrencyValue(value);
-        //console.log(value);
+        this.sumOfCurrencies += this.thirdCurrencyValue
+        console.log(this.sumOfCurrencies);
       });
     }
   }
 
   updateThirdCurrencyValue(value) {
     const result3 = +Object.values(value.rates);
-    this.thirdCurrencyValue = this.thirdCurrencyValue * result3;
+    this.thirdCurrencyValue =  this.thirdCurrencyValue * result3;
   }
 }
