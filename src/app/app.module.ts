@@ -16,6 +16,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { signUpComponent } from './signUp/signUp.component';
 import { CurrencyComponent } from './currency/currency.component';
 import { ExchangeComponent } from './exchange/exchange.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NewsComponent } from './news/news.component';
+import { ArticleComponent } from './article/article.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { ExchangeComponent } from './exchange/exchange.component';
     WishlistComponent,
     signUpComponent,
     CurrencyComponent,
-    ExchangeComponent
+    ExchangeComponent,
+    DashboardComponent,
+    NewsComponent,
+    ArticleComponent,
+    ErrorComponent
   ],
   imports: [
     HttpClientModule,
@@ -43,7 +51,12 @@ import { ExchangeComponent } from './exchange/exchange.component';
       { path: 'whishlist', component: WishlistComponent },
       { path: 'signUp', component: signUpComponent },
       { path: 'currency', component: CurrencyComponent },
-      { path: 'exchange', component: ExchangeComponent }
+      { path: 'exchange', component: ExchangeComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'dashboard/news', component: NewsComponent },
+      { path: 'dashboard/news/:articleId', component: ArticleComponent },
+      { path: 'error', component: ErrorComponent },
+      { path: '**', redirectTo: 'error' }, 
     ]),
     ReactiveFormsModule,
     FormsModule
