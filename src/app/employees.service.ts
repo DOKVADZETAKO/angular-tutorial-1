@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
-interface IEmployee{
+interface IEmployee {
   id: string;
-  employee_name:string;
+  employee_name: string;
   employee_salary: string;
   employee_age: string;
 }
@@ -19,26 +19,39 @@ export class EmployeesService {
 
   constructor(private http: HttpClient) { }
 
-  getEmployees(){
+  getEmployees() {
     const url = `${this.host}/employees`
     return this.http
-    .get(url)
-    .pipe(map((employees: IEmployee[]) => {
-      return employees.map(employee => {
-        return{
+      .get(url)
+      .pipe(map((employees: IEmployee[]) => {
+        return employees.map(employee => {
+          return {
+            id: employee.id,
+            name: employee.employee_name,
+            salary: employee.employee_salary,
+            age: employee.employee_age
+          }
+        })
+      }))
+  }
+
+  AddRegister(employee: IEmployee) {
+    const url = `${this.host}/create`
+    return this.http
+      .post<IEmployee>(url, employee);
+  }
+
+  OneEmployee(id) {
+    const url = `${this.host}/employee/${id}`;
+    return this.http.get(url)
+      .pipe(map((employee: IEmployee) => {
+        return {
           id: employee.id,
           name: employee.employee_name,
           salary: employee.employee_salary,
           age: employee.employee_age
         }
-      })
-    }))
+      }))
   }
 
-  AddRegister(employee: IEmployee){
-    console.log(employee)
-    const url = `${this.host}/create`
-    return this.http
-    .post<IEmployee>(url, employee);
-  }
 }

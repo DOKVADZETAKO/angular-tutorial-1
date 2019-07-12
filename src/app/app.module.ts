@@ -84,6 +84,7 @@ import { EmployeeComponent } from './employee/employee.component';
       { path: 'users', data: { name: 'users' }, component: UsersComponent, canActivate: [AuthGuard] },
       { path: 'employees', data: { name: 'Employees' }, component: EmployeesComponent },
       { path: 'employee/register', data: { name: 'Employees Registration' }, component: EmployeeRegisterComponent },
+      { path: 'employees/:id', data: { name: 'One employee' }, component: EmployeeComponent },
       { path: '**', redirectTo: 'error' },
     ]),
     ReactiveFormsModule,
