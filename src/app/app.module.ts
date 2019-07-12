@@ -28,7 +28,6 @@ import { LoginComponent } from './login/login.component';
 import { formsComponent } from './forms/forms.component';
 import { UsersComponent } from './users/users.component';
 import { AuthGuard } from './auth.guard';
-import { EditGuard } from './edit.guard';
 
 @NgModule({
   declarations: [
@@ -77,7 +76,6 @@ import { EditGuard } from './edit.guard';
       { path: 'login', data: { name: 'Login' }, component: LoginComponent },
       { path: 'signUp2', data: { name: 'signUp2' }, component: formsComponent },
       { path: 'users', data: { name: 'users' }, component: UsersComponent, canActivate: [AuthGuard] },
-     // { path: 'users/edit/:userId', data: { name: 'User' }, component: UserEditComponent , canActivate: [AuthGuard, EditGuard]},
       { path: '**', redirectTo: 'error' },
     ]),
     ReactiveFormsModule,
