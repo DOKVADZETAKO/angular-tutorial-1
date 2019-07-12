@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 interface IEmployee{
   id: string;
@@ -33,5 +33,12 @@ export class EmployeesService {
         }
       })
     }))
+  }
+
+  AddRegister(employee: IEmployee){
+    console.log(employee)
+    const url = `${this.host}/create`
+    return this.http
+    .post<IEmployee>(url, employee);
   }
 }

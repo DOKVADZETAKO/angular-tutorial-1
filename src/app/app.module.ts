@@ -29,6 +29,8 @@ import { formsComponent } from './forms/forms.component';
 import { UsersComponent } from './users/users.component';
 import { AuthGuard } from './auth.guard';
 import { EmployeesComponent } from './employees/employees.component';
+import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { EmployeesComponent } from './employees/employees.component';
     formsComponent,
     UsersComponent,
     EmployeesComponent,
+    EmployeeRegisterComponent,
+    EmployeeComponent,
     
   ],
   imports: [
@@ -79,6 +83,7 @@ import { EmployeesComponent } from './employees/employees.component';
       { path: 'signUp2', data: { name: 'signUp2' }, component: formsComponent },
       { path: 'users', data: { name: 'users' }, component: UsersComponent, canActivate: [AuthGuard] },
       { path: 'employees', data: { name: 'Employees' }, component: EmployeesComponent },
+      { path: 'employee/register', data: { name: 'Employees Registration' }, component: EmployeeRegisterComponent },
       { path: '**', redirectTo: 'error' },
     ]),
     ReactiveFormsModule,

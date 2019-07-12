@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeesService } from '../employees.service';
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 @Component({
   selector: 'app-employees',

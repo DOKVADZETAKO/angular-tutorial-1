@@ -1,0 +1,15 @@
+<h1>Employees Register</h1>
+
+<form [formGroup]="employeesregister">
+    <label for="name"> Name:
+        <input id="name" type="text" formControlName="name">
+    </label>
+    <label for="salary"> Salary:
+        <input id="salary" type="text" formControlName="salary">
+    </label>
+    <label for="age"> Age:
+        <input type="text" formControlName="age">
+    </label>
+
+    <button (click)="newEmployee(employeesregister.value)" [disabled]="employeesregister.status === 'INVALID'" type="submit">Register</button>
+</form>
