@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
-interface IEmployee {
+export interface IEmployee {
   id: string;
   employee_name: string;
   employee_salary: string;
@@ -38,7 +38,7 @@ export class EmployeesService {
   AddRegister(employee: IEmployee) {
     const url = `${this.host}/create`
     return this.http
-      .post<IEmployee>(url, employee);
+      .post<IEmployee> (url, employee);
   }
 
   OneEmployee(id) {
@@ -52,6 +52,19 @@ export class EmployeesService {
           age: employee.employee_age
         }
       }))
+  }
+
+  //task-3
+
+  update(id, employee) {
+    const url = `${this.host}/update/${id}`;
+
+    return this.http.put(url, employee);
+  }
+
+  delete(id) {
+    const url = `${this.host}/delete/${id}`;
+    return this.http.delete(url);
   }
 
 }

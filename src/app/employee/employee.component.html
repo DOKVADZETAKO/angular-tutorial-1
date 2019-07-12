@@ -17,4 +17,24 @@
             <td>{{employee.age}}</td>
         </tr>
     </tbody>
+
+
 </table>
+<!-- task-3 -->
+<form [formGroup]="employeeForm" id="employeeForm">
+    <p><span>ID: </span>{{employee.id}}</p>
+    <label for="name"> Name:
+        <input id="name" type="text" formControlName="name">
+    </label>
+    <label for="salary"> Salery:
+        <input id="salary" type="text" formControlName="salary">
+    </label>
+    <label for="age"> Age:
+        <input type="text" formControlName="age">
+    </label>
+
+    <button class="btn btn-primary" type="submit" [disabled]="employeeForm.status === 'INVALID'"
+        (click)="onSubmit()">Update
+    </button>
+    <button class="btn btn-primary" (click)="onDelete()">Delete</button>
+</form>
