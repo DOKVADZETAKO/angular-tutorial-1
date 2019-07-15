@@ -2,11 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeesService, IEmployee } from '../employees.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.scss']
+  styleUrls: ['./employee.component.scss'],
+  animations: [
+    trigger('openClose', [
+      state('open', style({
+        top: 0
+      })),
+      state('close', style({
+        top: '-300px'
+      })),
+      transition('open <=> close', [
+        animate('0.4s')
+      ])
+    ])
+  ]
 })
 export class EmployeeComponent implements OnInit {
 
@@ -20,6 +34,7 @@ export class EmployeeComponent implements OnInit {
 
   employeeForm;
   updetedEmployee;
+  showalert = false;
 
   constructor(
     private employeesService: EmployeesService,
@@ -52,6 +67,7 @@ export class EmployeeComponent implements OnInit {
     .subscribe(res => {
       this.router.navigate(['/employees']);
     })
+    this.showalert = false;
   }
 
   onSubmit() {
@@ -67,6 +83,14 @@ export class EmployeeComponent implements OnInit {
         this.employee.salary = newEmployee.employee_salary;
         this.router.navigate(['/employees']);
       });
+  }
+
+  showAlert() {
+    this.showalert = true;
+  }
+
+  hideAlert() {
+    this.showalert = false;
   }
 
 }

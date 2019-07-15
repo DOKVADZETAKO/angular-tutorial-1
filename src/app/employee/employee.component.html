@@ -17,10 +17,7 @@
             <td>{{employee.age}}</td>
         </tr>
     </tbody>
-
-
 </table>
-<!-- task-3 -->
 <form [formGroup]="employeeForm" id="employeeForm">
     <p><span>ID: </span>{{employee.id}}</p>
     <label for="name"> Name:
@@ -33,8 +30,15 @@
         <input type="text" formControlName="age">
     </label>
 
+    <button (click)="showAlert()">Delete</button>
     <button class="btn btn-primary" type="submit" [disabled]="employeeForm.status === 'INVALID'"
         (click)="onSubmit()">Update
     </button>
-    <button class="btn btn-primary" (click)="onDelete()">Delete</button>
+
+    <div class="window" [@openClose]="showalert ? 'open': 'close'">
+        <h3>Are you sure to remove employee?</h3>
+        <button class="btn btn-primary" (click)="onDelete()">Delete</button>
+        <button (click)="hideAlert()">Cancel</button>
+    </div>
+
 </form>
