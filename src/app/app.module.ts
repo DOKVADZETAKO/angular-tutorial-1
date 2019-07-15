@@ -33,6 +33,7 @@ import { EmployeeRegisterComponent } from './employee-register/employee-register
 import { EmployeeComponent } from './employee/employee.component';
 import { MenuComponent } from './menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EmployeeRegisterComponent,
     EmployeeComponent,
     MenuComponent,
+    LoaderComponent,
     
   ],
   imports: [
