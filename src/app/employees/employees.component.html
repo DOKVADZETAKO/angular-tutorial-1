@@ -1,5 +1,10 @@
 <h1>Employees</h1>
 
+<div class="container" [@loadUnload]="loaded ? 'load' : 'unload'">
+    <div id="loader">
+        <div class="dot"></div>
+    </div>
+</div>
 <table>
     <thead>
         <tr>

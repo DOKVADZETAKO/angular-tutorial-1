@@ -1,0 +1,41 @@
+.container {
+    #loader {
+        bottom: 0;
+        height: 175px;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 175px;
+    }
+    
+    #loader .dot {
+        display: inline-block;
+        width: 64px;
+        height: 64px;
+      }
+      #loader .dot:after {
+        content: " ";
+        display: block;
+        width: 46px;
+        height: 46px;
+        margin: 1px;
+        border-radius: 50%;
+        border: 5px solid #000;
+        border-color: #000 transparent #000 transparent;
+        animation: dot 1.2s linear infinite;
+      }
+      @keyframes dot {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+}
+
+
+
+
