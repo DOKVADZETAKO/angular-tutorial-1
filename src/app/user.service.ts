@@ -8,7 +8,7 @@ export class UsersService {
     // static GetUsers() {
 
     // }
-    
+
     authorized = false;
     authorizedUser = null;
 
