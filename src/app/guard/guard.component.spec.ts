@@ -1,27 +1,28 @@
-// import { MenuComponent } from "./menu.component";
+import { GuardComponent } from "./guard.component";
+import { AuthService } from '../auth.service';
 
-// describe('Testing menu component', () => {
-//   let menuComponent;
+describe('Testing guard component', () => {
+    let guardComponent;
+    let authService: AuthService;
+    beforeEach(() => {
+        guardComponent = new GuardComponent(authService);
+    })
 
-//   beforeEach(() => {
-//     menuComponent = new MenuComponent();
-//   })
 
+    // it('Default value should be false', () => {
+    //     const disallow = guardComponent.disallow;
+    //     expect(disallow).toBe(false)
+    // });
 
-//   it('Default value should be false', () => {
-//     const isOpen = menuComponent.isOpen;
-//     expect(isOpen).toBe(false)
-//   });
+    // it('Method allow should be true', () => {
+    //     authService.allow();
+    //     const allow = authService.allow;
+    //     expect(allow).toBe(true)
+    // });
 
-//   it('Method showMe should be true', () => {
-//     menuComponent.showMenu();
-//     const isOpen = menuComponent.isOpen;
-//     expect(isOpen).toBe(true)
-//   });
-
-//   it('Method hideMe should be true', () => {
-//     menuComponent.hideMenu();
-//     const isOpen = menuComponent.isOpen;
-//     expect(isOpen).toBe(false)
-//   });
-// })
+    // it('Method disallow should be false', () => {
+    //     authService.disallow();
+    //     const disallow = authService.disallow;
+    //     expect(disallow).toBe(false)
+    // });
+})
