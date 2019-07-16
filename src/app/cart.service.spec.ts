@@ -1,9 +1,9 @@
 import { CartService } from './cart.service';
 
 describe('Cart Service tests', () => {
-    const service: CartService = new CartService();
+    let service;
     beforeEach(() => {
-        const service = new CartService();
+        service = new CartService();
     });
 
     it('items default lenght should be 0', () => {
@@ -13,7 +13,7 @@ describe('Cart Service tests', () => {
 
     it('Method addtoCard should add items in the array', () => {
         service.addToCart(5)
-        expect(service.items[0]).toBe(5);
+        expect(service.items.includes(5)).toBe(true);
     });
 
     it('Method getItems should get items from items array', () => {
@@ -26,7 +26,9 @@ describe('Cart Service tests', () => {
     })
     
     it('Method clearItem should clear specific item from cart array', () => {
+        service.addToCart(3);
+        expect(service.items.includes(3)).toBe(true);
         service.clearItem(3);
-        expect(service.items[3]).toBe(undefined);
+        expect(service.items.includes(3)).toBe(false);
     })
 });
